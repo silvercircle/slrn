@@ -1,0 +1,87 @@
+This file is mainly intended as a quick guide for people who already know
+slrn and want to run it on Windows.  You can find descriptions on the web
+that are both more comprehensive and easier to understand.  Please also
+consult the rest of the documentation that comes with slrn.
+
+Compiling slrn on Windows using the MinGW tool-set.
+====================================================
+
+slrn depends upon version 2.2.3 of slang or later.  If you do not have
+this version installed, including the slang interpreter SLSH, then
+download and install it first.   You need to do so because slrn makes
+extensive use of the slang library and the installation of slrn
+requires SLSH.  The slang library is available from
+<http://www.jedsoft.org/slang/>.  Build and install it first.
+
+Suppose that you have installed the slang library using an install
+prefix of C:\mingw\local.  Then slsh should be located in
+C:\mingw\local\bin.  Make sure the directory containing slsh is in
+your search path:
+
+    set PATH=C:\mingw\local\bin;%PATH%
+
+After setting the path, you should be able to run the command
+
+    slsh --version
+
+and see output such as
+
+    slsh version 0.9.4-0; S-Lang version: pre2.3.1-90
+
+Also, if mingw32-make is not in your path, you will also need to add
+its directory to the search path.  The script win32\setpath.bat may be
+used to facilitate this step.  The script assumes that the MinGW
+toolset was installed under C:\mingw.
+
+Now run the win32\m32config.sl slang script.  This will create the
+Makefiles and configuration-specific header files:
+
+    slsh win32/m32config.sl
+
+(Note that slsh also supports / as the path separator).  This will
+configure the Makefiles to install slrn under the slang install
+prefix.  For other config options, run:
+
+    slsh win32/m32config.sl --help
+
+Now run mingw32-make to build slrn:
+
+    mingw32-make
+
+Assuming that step was successful (if not, email the author), install
+slrn via
+
+    mingw32-make install
+
+At this point, you should have a working slrn installation under
+C:\mingw\local.  See if it runs via:
+
+    C:\mingw\local\bin\slrn --version
+
+
+Running slrn
+============
+
+See <http://andrews-corner.org/slrn-windows.html> for a nice overview
+of setting up slrn.  Please read it.
+
+To use slrn, you will need do the following:
+
+1.  Set the following environment variables:
+       set NNTPSERVER=my.news.server
+       set HOME=d:\home\sweet\home
+       (Note: Forward slashes are also ok)
+
+3.  Copy the file slrn.rc into the home-directory and edit it to your needs,
+    it should be pretty well documented.  When entering file path names
+    here, use double backslashes (\\)!
+
+4.  The first time you start slrn, start it with the following parameters
+    "slrn.exe --create", this will create a jnews.rc.  After that you can
+    start it without parameters.
+
+You should now see slrn in action.  If you actually want to work with it,
+you also need an editor (if you don't have your favorite one, MS DOS edit
+will work) and a program like sendsmtp that can deliver email to your mail
+server (for forwards and replies).  If you want to read your news offline,
+you either need a binary of slrnpull or a local server as well.

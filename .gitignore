@@ -1,0 +1,4 @@
+config.status
+configure.log
+src/objs/*
+

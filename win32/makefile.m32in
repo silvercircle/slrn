@@ -1,0 +1,32 @@
+# -*-sh-*-
+MAKE = mingw32-make
+SLSH = slsh
+# Note: copy.exe does not exist on windows since it is a cmd.exe built-in
+MFLAGS = COPY="cmd /c copy /y" RM="cmd /c del"
+
+# DESTDIR is used for building a package for use on another machine.
+DESTDIR =
+PREFIX = @PREFIX@
+CONFDIR = C:$(PREFIX)/etc
+SLRNPULL_ROOT = @SLRNPULL_ROOT_DIR@
+#
+all: slrn slrnpull
+slrn:
+	cd src && $(MAKE) $(MFLAGS) slrn.exe
+	@echo .
+	@echo To install it, run $(MAKE) install.
+	@echo .
+#
+slrnpull:
+	cd src && $(MAKE) $(MFLAGS) slrnpull.exe
+	@echo .
+	@echo To install it, run $(MAKE) install.
+	@echo .
+#
+clean:
+	cd src && $(MAKE) $(MFLAGS) clean
+#
+install: all
+	$(SLSH) win32/m32install.sl "--destdir=$(DESTDIR)" "--prefix=$(PREFIX)" "--slrnpull=$(SLRNPULL_ROOT)" install
+#
+.PHONY: all install clean slrn slrnpull

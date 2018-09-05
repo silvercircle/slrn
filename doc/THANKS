@@ -1,0 +1,37 @@
+I want to thank everybody who helped to develop and improve slrn by
+sending in code, bugreports or leading productive discussions.  The
+list of contributors is far too long to be kept in this file; please
+see changes.txt for those who contributed patches.
+
+I am particularly grateful to the earliest users and contributers to
+software.  The earliest contributers to slrn include:
+
+  Michael Elkins
+  Matthias Friedrich
+  David Gerard
+  Howard Goldstein
+  Andrew Greer
+  Sven Guckes
+  Jan Hlavacek
+  Jay Maynard
+  J.B. Nicholson-Owens
+  Mark Olesen
+  Felix Schueller
+  Thomas Schultz
+  Lloyd Zusman
+
+In 2001 I no longer found time to continue slrn development.  Thomas
+Schultz agreed to take over the job as the lead slrn developer and
+continued in that role until 2008.  For this reason he deserves
+special recognition.
+
+In 2008 I returned as the lead slrn developer.  I was helped by an
+enthusiastic group of folks who took it upon themselves to bring the
+documentation up to date:
+
+  Peter J Ross
+  Rudy Taraschi
+  Thomas Wiegner
+
+Finally, I would like to thank Andrew Strong for his support of slrn
+under Windows.

@@ -1,0 +1,34 @@
+# -*- sh -*-
+
+#This is a UNIX-only makefile.
+
+@SET_MAKE@
+
+all: makefiles
+	cd src; $(MAKE) all
+uudecode:
+	cd src; $(MAKE) uudecode
+slrnpull: slrnpull_exe
+slrnpull_exe: makefiles
+	cd src; $(MAKE) slrnpull
+Makefile: configure autoconf/Makefile.in
+	@echo "Makefile is older than the configure script".
+	@echo "Please re-run the configure script."
+	@exit 1
+src/Makefile: configure src/Makefile.in src/config.hin
+	@echo "src/Makefile is older than its dependencies".
+	@echo "Please re-run the configure script."
+	@exit 1
+makefiles: Makefile src/Makefile
+clean:
+	/bin/rm -f *~ doc/*~ macros/*~
+	cd src; $(MAKE) clean
+#
+distclean:
+	cd src; $(MAKE) distclean
+	/bin/rm -f *~ Makefile config.status config.log config.cache files.pck
+#
+install:
+	cd src; $(MAKE) install
+#
+.PHONY: all install clean distclean makefiles
