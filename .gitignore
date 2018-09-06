@@ -1,5 +1,14 @@
 config.status
 configure.log
+config.log
 src/objs/*
 Makefile
+po/Makefile
+po/Makefile.in
+po/POTFILES
+po/stamp-po
+src/Makefile
+src/config.h
+src/slrnfeat.h
+src/sysconf.h
 

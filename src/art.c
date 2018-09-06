@@ -109,6 +109,8 @@ int Slrn_Emphasized_Text_Mode = 3;
 int Slrn_Emphasized_Text_Mask = EMPHASIZE_ARTICLE;
 int Slrn_Highlight_Urls = 1;
 
+int Slrn_Left_Indent = 0;       // apply this # of spaces as left margin in the article pager
+
 int Slrn_Process_Verbatim_Marks = 1;
 
 Slrn_Article_Type *Slrn_Current_Article;
@@ -8965,7 +8967,7 @@ static void display_article_line (Slrn_Article_Line_Type *l)
 	       {
 		  lbuf++;
 		  slrn_set_color (SLRN_HEADER_KEYWORD_COLOR);
-		  slrn_write_nbytes ("  ", 2);
+		  SLsmg_gotorc (SLsmg_get_row(), Slrn_Left_Indent);
 		  slrn_write_nbytes (l->buf, lbuf - l->buf);
 	       }
 	     else lbuf = l->buf;
@@ -9030,7 +9032,7 @@ static void display_article_line (Slrn_Article_Line_Type *l)
     if (l->flags & HEADER_LINE)
         SLsmg_gotorc(SLsmg_get_row(), new_col);
     else
-        SLsmg_gotorc(SLsmg_get_row(), 2);
+        SLsmg_gotorc(SLsmg_get_row(), Slrn_Left_Indent);
 	smg_write_emphasized_text (lbuf, color);
 	return;
 #endif
@@ -9038,7 +9040,7 @@ static void display_article_line (Slrn_Article_Line_Type *l)
     if (l->flags & HEADER_LINE)
         SLsmg_gotorc(SLsmg_get_row(), new_col);
     else
-        SLsmg_gotorc(SLsmg_get_row(), 2);
+        SLsmg_gotorc(SLsmg_get_row(), Slrn_Left_Indent);
    smg_write_string (lbuf);
 }
 

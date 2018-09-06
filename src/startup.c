@@ -649,6 +649,7 @@ Slrn_Int_Var_Type Slrn_Int_Variables [] = /*{{{*/
      {"wrap_flags", &Slrn_Wrap_Mode, NULL},
      {"wrap_width", &Slrn_Wrap_Width, NULL},
      {"wrap_method", &Slrn_Wrap_Method, NULL},
+     {"left_indent", &Slrn_Left_Indent, NULL},
      {"write_newsrc_flags", &Slrn_Write_Newsrc_Flags, NULL},
      {"query_read_group_cutoff", &Slrn_Query_Group_Cutoff, NULL},
      {"max_queued_groups", &Slrn_Max_Queued_Groups, NULL},
