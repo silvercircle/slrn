@@ -659,7 +659,7 @@ static int prepare_header (VFILE *vp, unsigned int *linenum, Slrn_Article_Type *
 			   Slrn_Mime_Error_Obj **errp) /*{{{*/
 {
    unsigned int lineno;
-   int newsgroups_found=0, subject_found=0, followupto_found=0;
+   int newsgroups_found=0, subject_found=0, followupto_found=0,ua_found=0;
    Slrn_Mime_Error_Obj *err=NULL;
    Slrn_Mime_Error_Obj *mime_err;
    char *tmp, *system_os_name;
@@ -712,6 +712,13 @@ static int prepare_header (VFILE *vp, unsigned int *linenum, Slrn_Article_Type *
 	     if (is_empty_header (line))
 	       err = slrn_add_mime_error(err, _("The Subject: header is not allowed be to empty."), line, lineno, MIME_ERROR_CRIT);
 	     subject_found = 1;
+	  }
+
+	if (!slrn_case_strncmp ( line,  "User-Agent:", 11))
+	  {
+	     if (is_empty_header (line))
+	       err = slrn_add_mime_error(err, _("The User-Agent: header is not allowed be to empty."), line, lineno, MIME_ERROR_CRIT);
+	     ua_found = 1;
 	  }
 
 	if ((!mail) && (!slrn_case_strncmp ( line,  "Newsgroups:", 11)))
@@ -819,9 +826,17 @@ static int prepare_header (VFILE *vp, unsigned int *linenum, Slrn_Article_Type *
 	  }
      }
 
+   if (ua_found == 0)
+     {
+       if ((NULL == (tmp = slrn_strdup_printf("User-Agent: slrn/%s (%s)", Slrn_Version_String, system_os_name)))
+          || (NULL == slrn_append_to_header (a, tmp, 1)))
+         {
+	    err = slrn_add_mime_error (err, _("Out of memory."), "Headers", 0, MIME_ERROR_CRIT);
+    	goto return_error;
+         }
+     }
+
    if ((NULL == (tmp = slrn_gen_date_header ()))
-       || (NULL == slrn_append_to_header (a, tmp, 1))
-       || (NULL == (tmp = slrn_strdup_printf("User-Agent: slrn/%s (%s)", Slrn_Version_String, system_os_name)))
        || (NULL == slrn_append_to_header (a, tmp, 1))
        || (NULL == slrn_append_to_header (a, NULL,0)))   /* separator */
      {
