@@ -123,6 +123,7 @@ static SLcmd_Cmd_Type Slrn_Startup_File_Cmds[] = /*{{{*/
 
    /* The following are considered obsolete */
      {user_data_fun, "hostname", "S"},
+     {user_data_fun, "fqdn", "S"},
      {user_data_fun, "username", "S"},
      {user_data_fun, "replyto", "S"},
      {user_data_fun, "organization", "S"},
@@ -594,6 +595,7 @@ Slrn_Int_Var_Type Slrn_Int_Variables [] = /*{{{*/
      {"generate_date_header", &Slrn_Generate_Date_Header, NULL},
      {"generate_message_id", &Slrn_Generate_Message_Id, NULL},
      {"use_recommended_msg_id", &Slrn_Use_Recom_Id, NULL},
+     {"midgen_override_fqdn", &Slrn_Use_Fqdn, NULL},
      {"pipe_type", &Slrn_Pipe_Type, NULL},
 #if SLRN_HAS_STRICT_FROM
      {"generate_email_from", NULL, NULL},
@@ -726,10 +728,12 @@ Slrn_Str_Var_Type Slrn_Str_Variables [] = /*{{{*/
      {"hostname", &Slrn_User_Info.hostname, NULL},
      {"realname", &Slrn_User_Info.realname, NULL},
      {"username", &Slrn_User_Info.username, NULL},
+     {"fqdn", &Slrn_User_Info.fqdn, NULL},
 #else
      {"hostname", NULL, NULL},
      {"realname", NULL, NULL},
      {"username", NULL, NULL},
+     {"fqdn", NULL, NULL},
 #endif
 #if SLRN_HAS_CANLOCK
      {"cansecret_file", &Slrn_User_Info.cancelsecret, NULL},
@@ -1504,10 +1508,12 @@ static User_Info_Variable_Type User_Info_Variables[] = /*{{{*/
      {"hostname", &Slrn_User_Info.hostname, 0},
      {"username", &Slrn_User_Info.username, 0},
      {"realname", &Slrn_User_Info.realname, 0},
+     {"fqdn", &Slrn_User_Info.fqdn, 0},
 #else
      {"hostname", NULL, 0},
      {"username", NULL, 0},
      {"realname", NULL, 0},
+     {"fqdn", NULL, 0},
 #endif
      {"scorefile", &Slrn_Score_File, 0},
      {"replyto", &Slrn_User_Info.replyto, 0},

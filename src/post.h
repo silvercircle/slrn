@@ -38,3 +38,5 @@ extern int Slrn_Generate_Date_Header;
 extern char *Slrn_Signoff_String;
 extern int Slrn_Netiquette_Warnings;
 extern int Slrn_Use_Recom_Id;
+extern int Slrn_Use_Fqdn;
+

@@ -89,16 +89,33 @@ int Slrn_Generate_Message_Id = 1;
 int Slrn_Netiquette_Warnings = 1;
 int Slrn_Reject_Long_Lines = 2;
 int Slrn_Use_Recom_Id = 0;
+int Slrn_Use_Fqdn = 0;
+
 /*}}}*/
 
 /*{{{ Forward Function Declarations */
 static int postpone_file (char *);
 /*}}}*/
 
+static char *gen_rand_id(char *str, size_t length)
+{
+    const char _c[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJK...";
+    if (length) {
+        --length;
+        for (size_t n = 0; n < length; n++) {
+            int key = rand() % (int) (sizeof _c - 1);
+            str[n] = _c[key];
+        }
+        str[length] = '\0';
+    }
+    return str;
+}
+
 /* This function needs to be called directly after po_start! */
 static int create_message_id (char **msgidp)/*{{{*/
 {
    char *t, *msgid;
+   int use_fqdn = Slrn_Use_Fqdn;
 #if SLRN_HAS_GEN_MSGID
    unsigned long pid, now;
    char baseid[64];
@@ -106,6 +123,7 @@ static int create_message_id (char **msgidp)/*{{{*/
    char *chars32 = "0123456789abcdefghijklmnopqrstuv";
    static unsigned long last_now;
    size_t malloc_len;
+   char   rnd_id[10];
 #endif
 
    *msgidp = NULL;
@@ -180,12 +198,16 @@ static int create_message_id (char **msgidp)/*{{{*/
      }
    *b = 0;
 
-   malloc_len=(strlen(baseid)+strlen(Slrn_User_Info.posting_host)+8);
+   use_fqdn = Slrn_Use_Fqdn && Slrn_User_Info.fqdn != 0 && strlen(Slrn_User_Info.fqdn) > 2 ? 1 : 0;
+
+   gen_rand_id(rnd_id, 5);
+
+   malloc_len=(strlen(rnd_id) + 1 + strlen(baseid)+strlen(use_fqdn ? Slrn_User_Info.fqdn : Slrn_User_Info.posting_host)+8);
    if (NULL == (msgid=slrn_malloc (malloc_len,0,1)))
      return -1;
-
-   (void) SLsnprintf (msgid, malloc_len, "<slrn%s@%s>", baseid, Slrn_User_Info.posting_host);
-
+ 
+   (void) SLsnprintf (msgid, malloc_len, "<%s.%s@%s>", rnd_id, baseid, use_fqdn ? Slrn_User_Info.fqdn : Slrn_User_Info.posting_host);
+   /*printf("The fqdn is: %s\n", Slrn_User_Info.fqdn);*/
    *msgidp = msgid;
    return 0;
 #endif /*SLRN_HAS_GEN_MSGID*/

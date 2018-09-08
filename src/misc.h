@@ -72,6 +72,7 @@ typedef struct
    char *realname;
    char *username;
    char *hostname;
+   char *fqdn;
    char *replyto;
    char *org;
    char *followup_string;
