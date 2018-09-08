@@ -251,6 +251,8 @@ static void show_spoilers (void);
 #endif
 /*}}}*/
 
+static char *__spaces = "                             ";
+
 /*{{{ portability functions */
 #ifndef HAVE_GETTIMEOFDAY
 # ifdef VMS
@@ -8955,7 +8957,7 @@ static void display_article_line (Slrn_Article_Line_Type *l)
    int color;
    int use_emph_mask = 0;
    int use_rot13 = 0;
-   int new_col = 0;
+   unsigned int new_col = 0, cur_col = 0;
 
    switch (l->flags & LINE_TYPE_MASK)
      {
@@ -8967,7 +8969,7 @@ static void display_article_line (Slrn_Article_Line_Type *l)
 	       {
 		  lbuf++;
 		  slrn_set_color (SLRN_HEADER_KEYWORD_COLOR);
-		  SLsmg_gotorc (SLsmg_get_row(), Slrn_Left_Indent);
+		  slrn_write_nbytes(__spaces, Slrn_Left_Indent);
 		  slrn_write_nbytes (l->buf, lbuf - l->buf);
 	       }
 	     else lbuf = l->buf;
@@ -9023,24 +9025,34 @@ static void display_article_line (Slrn_Article_Line_Type *l)
 	return;
      }
 
-   new_col = SLsmg_get_column();
-   new_col = new_col < 18 ? 18 : new_col;
+   cur_col = SLsmg_get_column();
+   new_col = cur_col < 18 ? 18 : cur_col;
 
    if (use_emph_mask)
      {
 #if SLRN_HAS_EMPHASIZED_TEXT
-    if (l->flags & HEADER_LINE)
-        SLsmg_gotorc(SLsmg_get_row(), new_col);
+    if (l->flags & HEADER_LINE) {
+        if (new_col > cur_col) {
+            unsigned int to_write = new_col - cur_col;
+            to_write = to_write > 20 ? 20 : to_write;
+            slrn_write_nbytes(__spaces, to_write);
+        }
+    }
     else
-        SLsmg_gotorc(SLsmg_get_row(), Slrn_Left_Indent);
+        slrn_write_nbytes(__spaces, Slrn_Left_Indent);
 	smg_write_emphasized_text (lbuf, color);
 	return;
 #endif
      }
-    if (l->flags & HEADER_LINE)
-        SLsmg_gotorc(SLsmg_get_row(), new_col);
+    if (l->flags & HEADER_LINE) {
+        if (new_col > cur_col) {
+            unsigned int to_write = new_col - cur_col;
+            to_write = to_write > 20 ? 20 : to_write;
+            slrn_write_nbytes(__spaces, to_write);
+        }
+    }
     else
-        SLsmg_gotorc(SLsmg_get_row(), Slrn_Left_Indent);
+        slrn_write_nbytes(__spaces, Slrn_Left_Indent);
    smg_write_string (lbuf);
 }
 
@@ -9240,6 +9252,8 @@ static void update_article_window (void)
 
    if (NULL == (a = Slrn_Current_Article))
      return;
+
+   Slrn_Left_Indent = Slrn_Left_Indent > 20 ? 20 : Slrn_Left_Indent;
 
    if (Slrn_Current_Article->needs_sync)
      slrn_art_sync_article (Slrn_Current_Article);

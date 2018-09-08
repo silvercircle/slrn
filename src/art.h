@@ -62,6 +62,7 @@ extern int Slrn_Quotes_Hidden_Mode;
 extern int Slrn_Verbatim_Marks_Hidden;
 extern int Slrn_Verbatim_Hidden;
 extern int Slrn_Warn_Followup_To;
+extern int Slrn_Send_Flowed;
 
 extern char *Slrn_X_Browser;
 

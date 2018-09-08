@@ -9,6 +9,12 @@ article pager. Version number has been changed to 1.0.4-unoff to indicate its fo
 
 * GPL V2
 
+## Changes so far:
+
+* align headers in article pager window. Long headers (name > 20) characters are untouched.
+* allow a left margin in the article pager. Purely visual change, can be configured with `set 
+  left_indent x` in .slrnrc
+
 ## Planned
 
 * support format=flowed in the article pager. Implementing a new text wrapping engine.

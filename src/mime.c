@@ -54,6 +54,8 @@
 
 int Slrn_Use_Meta_Mail = 1;
 int Slrn_Fold_Headers = 1;
+int Slrn_Send_Flowed = 0;
+
 char *Slrn_MetaMail_Cmd;
 
 #ifndef SLRNPULL_CODE
@@ -1351,6 +1353,7 @@ static void steal_raw_lines (Slrn_Article_Type *a, Slrn_Article_Line_Type *line)
 Slrn_Mime_Error_Obj *slrn_mime_encode_article (Slrn_Article_Type *a, char *from_charset) /*{{{*/
 {
    Slrn_Article_Line_Type *header_sep, *rline;
+   int want_format_flowed = 0;
    int eightbit = 0;
    char *charset;
    unsigned int n, len;
@@ -1363,14 +1366,19 @@ Slrn_Mime_Error_Obj *slrn_mime_encode_article (Slrn_Article_Type *a, char *from_
 	     eightbit = 1;
 	     rline->flags |= LINE_HAS_8BIT_FLAG;
 	  }
+	// check whether we have a line with trailing white space
+	// if yes, we send as format=flowed
+	if (strlen(rline->buf) > 70 && rline->buf[strlen(rline->buf) - 1] == ' ')
+	    want_format_flowed = 1;
 	rline = rline->next;
      }
+
+   eightbit = want_format_flowed && Slrn_Send_Flowed ? 1 : eightbit;
 
    /* Append header separator line */
    if (NULL == (header_sep = slrn_append_to_header (a, NULL, 0)))
      return MIME_MEM_ERROR("Header separation line");
-
-   if (eightbit == 0)
+    if (eightbit == 0)
      {
 #if 0
 	/* These are unnecessary */
@@ -1421,7 +1429,7 @@ Slrn_Mime_Error_Obj *slrn_mime_encode_article (Slrn_Article_Type *a, char *from_
    if (((NULL == slrn_find_header_line (a, "Mime-Version"))
 	&& (NULL == slrn_append_header_keyval (a, "Mime-Version", "1.0")))
        || ((NULL == slrn_find_header_line (a, "Content-Type"))
-	   && (NULL == slrn_append_to_header (a, slrn_strdup_printf ("Content-Type: text/plain; charset=%s", charset),1)))
+	   && (NULL == slrn_append_to_header (a, slrn_strdup_printf ("Content-Type: text/plain; charset=%s%s", charset, Slrn_Send_Flowed && want_format_flowed ? "; format=flowed" : ""),1)))
        || ((NULL == slrn_find_header_line (a, "Content-Transfer-Encoding"))
 	   && (NULL == slrn_append_header_keyval (a, "Content-Transfer-Encoding", "8bit"))))
      {

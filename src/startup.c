@@ -632,6 +632,7 @@ Slrn_Int_Var_Type Slrn_Int_Variables [] = /*{{{*/
      {"drop_bogus_groups", &Slrn_Drop_Bogus_Groups, NULL},
      {"prefer_head", &Slrn_Prefer_Head, NULL},
      {"use_metamail", &Slrn_Use_Meta_Mail, NULL},
+     {"send_flowed", &Slrn_Send_Flowed, NULL},
 #if SLRN_HAS_UUDEVIEW
      {"use_uudeview", &Slrn_Use_Uudeview, NULL},
 #else
