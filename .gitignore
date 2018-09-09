@@ -11,4 +11,8 @@ src/Makefile
 src/config.h
 src/slrnfeat.h
 src/sysconf.h
+*.vpw
+*.vpj
+*.vtg
+*.vpwhistu
 
