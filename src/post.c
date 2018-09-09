@@ -97,10 +97,15 @@ int Slrn_Use_Fqdn = 0;
 static int postpone_file (char *);
 /*}}}*/
 
-static char *gen_rand_id(char *str, size_t length)
+/*
+ * generate random string with given length
+ * buffer must be pre-allocated
+ */
+static char *gen_rand_id(unsigned long seed, char *str, size_t length)
 {
-    const char _c[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJK...";
+    const char _c[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     if (length) {
+        srand(seed);
         --length;
         for (size_t n = 0; n < length; n++) {
             int key = rand() % (int) (sizeof _c - 1);
@@ -200,7 +205,7 @@ static int create_message_id (char **msgidp)/*{{{*/
 
    use_fqdn = Slrn_Use_Fqdn && Slrn_User_Info.fqdn != 0 && strlen(Slrn_User_Info.fqdn) > 2 ? 1 : 0;
 
-   gen_rand_id(rnd_id, 5);
+   gen_rand_id(now, rnd_id, 2);
 
    malloc_len=(strlen(rnd_id) + 1 + strlen(baseid)+strlen(use_fqdn ? Slrn_User_Info.fqdn : Slrn_User_Info.posting_host)+8);
    if (NULL == (msgid=slrn_malloc (malloc_len,0,1)))

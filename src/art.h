@@ -50,6 +50,7 @@ extern int Slrn_Wrap_Mode;
 extern int Slrn_Wrap_Width;
 extern int Slrn_Wrap_Method;
 extern int Slrn_Left_Indent;
+extern int Slrn_Align_Headers;
 extern int Slrn_Use_Header_Numbers;
 extern int Slrn_Reads_Per_Update;
 extern int Slrn_High_Score_Min;

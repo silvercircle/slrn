@@ -110,6 +110,7 @@ int Slrn_Emphasized_Text_Mask = EMPHASIZE_ARTICLE;
 int Slrn_Highlight_Urls = 1;
 
 int Slrn_Left_Indent = 0;       // apply this # of spaces as left margin in the article pager
+int Slrn_Align_Headers = 0;
 
 int Slrn_Process_Verbatim_Marks = 1;
 
@@ -251,7 +252,7 @@ static void show_spoilers (void);
 #endif
 /*}}}*/
 
-static char *__spaces = "                             ";
+static char *__spaces = "                                                  ";
 
 /*{{{ portability functions */
 #ifndef HAVE_GETTIMEOFDAY
@@ -8957,7 +8958,7 @@ static void display_article_line (Slrn_Article_Line_Type *l)
    int color;
    int use_emph_mask = 0;
    int use_rot13 = 0;
-   unsigned int new_col = 0, cur_col = 0;
+   unsigned int new_col = 0, cur_col = 0, to_write = 0;
 
    switch (l->flags & LINE_TYPE_MASK)
      {
@@ -9026,16 +9027,18 @@ static void display_article_line (Slrn_Article_Line_Type *l)
      }
 
    cur_col = SLsmg_get_column();
-   new_col = cur_col < 18 ? 18 : cur_col;
+   new_col = cur_col < Slrn_Align_Headers ? Slrn_Align_Headers : cur_col;
+
+   to_write = Slrn_Align_Headers ? (new_col - cur_col) : 1;
+   to_write = to_write > 40 ? 40 : to_write;
 
    if (use_emph_mask)
      {
 #if SLRN_HAS_EMPHASIZED_TEXT
     if (l->flags & HEADER_LINE) {
         if (new_col > cur_col) {
-            unsigned int to_write = new_col - cur_col;
-            to_write = to_write > 20 ? 20 : to_write;
-            slrn_write_nbytes(__spaces, to_write);
+            if (to_write)
+              slrn_write_nbytes(__spaces, to_write);
         }
     }
     else
@@ -9046,9 +9049,8 @@ static void display_article_line (Slrn_Article_Line_Type *l)
      }
     if (l->flags & HEADER_LINE) {
         if (new_col > cur_col) {
-            unsigned int to_write = new_col - cur_col;
-            to_write = to_write > 20 ? 20 : to_write;
-            slrn_write_nbytes(__spaces, to_write);
+            if (to_write)
+              slrn_write_nbytes(__spaces, to_write);
         }
     }
     else
@@ -9253,7 +9255,11 @@ static void update_article_window (void)
    if (NULL == (a = Slrn_Current_Article))
      return;
 
-   Slrn_Left_Indent = Slrn_Left_Indent > 20 ? 20 : Slrn_Left_Indent;
+   // do not allow silly values for these. limits are documented in .slrnrc
+   Slrn_Left_Indent = Slrn_Left_Indent > 10 ? 10 : Slrn_Left_Indent;
+
+   if (Slrn_Align_Headers < 0 || Slrn_Align_Headers > 40)
+     Slrn_Align_Headers = 0;
 
    if (Slrn_Current_Article->needs_sync)
      slrn_art_sync_article (Slrn_Current_Article);
