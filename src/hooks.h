@@ -41,8 +41,9 @@
 #define HOOK_STARTUP               19
 #define HOOK_SUBJECT_COMPARE       20
 #define HOOK_SUPERSEDE             21
+#define HOOK_ARTICLE_POSTED        22
 /* Number of different hooks */
-#define HOOK_NUMBER                22
+#define HOOK_NUMBER                23
 
 /* return -1 upon error, or number of hook functions called */
 extern int slrn_run_hooks( unsigned int hook, unsigned int num_args, ... );

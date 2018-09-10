@@ -1530,6 +1530,7 @@ static int post_article (Slrn_Article_Type *a, char **errmsgp)
 
    if (0 == Slrn_Post_Obj->po_end ())
      {
+	(void)slrn_run_hooks (HOOK_ARTICLE_POSTED, 0);
 	slrn_message (_("Posting...done."));
 	return 0;
      }

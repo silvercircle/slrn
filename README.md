@@ -23,6 +23,9 @@ article pager. Version number has been changed to 1.0.4-unoff to indicate its fo
 * New configuration variable: `fqdn`. This specifies the domain part for Message-ID
   generation. Only used when `midgen_override_fqdn` is also set to 1. Be careful, as some
   servers won't accept Message-IDs with „phantasy domain names”.
+* New hook: `after_post_hook`. This runs after an article was posted **successfully**. It can
+  be used to trigger events like posting it from a local to the upstream server (e.g. run
+  fetchnews -P on a leafnode site). No parameters are passed to the hook function.
 
 ## Planned
 

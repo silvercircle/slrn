@@ -69,6 +69,7 @@ static Hook_Type Hooks [HOOK_NUMBER+1] =
    { "startup_hook", 1, NULL },
    { "subject_compare_hook", 0, NULL },
    { "supersede_hook", 1, NULL },
+   { "after_post_hook", 1, NULL },
 
    {NULL, 0, NULL}
 };
