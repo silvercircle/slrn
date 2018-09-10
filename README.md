@@ -11,13 +11,23 @@ article pager. Version number has been changed to 1.0.4-unoff to indicate its fo
 
 ## Changes so far:
 
-* align headers in article pager window. Long headers (name > 20) characters are untouched.
+* align headers in article pager window. Can be configured with the `align_headers` config
+  variable. Allowed values are 1-40, headers whose names are longer than the selected
+  column are left untouched..
 * allow a left margin in the article pager. Purely visual change, can be configured with `set 
   left_indent x` in .slrnrc
+* Only add `User-Agent:` if none is supplied in the post.
+* Add `format=flowed` to the Content-Type: header when the post contains
+  soft-wrapped lines (ending with a whitepsace-LF sequence) AND the `send_flowed` configuration 
+  variable is set to a value other than zero.
+* New configuration variable: `fqdn`. This specifies the domain part for Message-ID
+  generation. Only used when `midgen_override_fqdn` is also set to 1. Be careful, as some
+  servers won't accept Message-IDs with „phantasy domain names”.
 
 ## Planned
 
-* support format=flowed in the article pager. Implementing a new text wrapping engine.
+* support format=flowed in the article pager. Implementing a new text wrapping engine,
+  probably based on par or fmt code.
 * ?
 
 ## Compile and install.
