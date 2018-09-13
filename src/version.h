@@ -19,9 +19,19 @@
  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#define SLRN_VERSION_STRING "1.0.4-unoff"
+#define __TOSTRING(X) #X
+#define _TOSTRING(X) __TOSTRING(X)
+
+#define SLRN_VERSION_STRING "1.0.4-unoff-2018-09-13"
 #define SLRN_VERSION 10040
 
+#if defined(__clang__)
+    #define COMPILER_VERSION "/clang "_TOSTRING(__clang_major__)"."_TOSTRING(__clang_minor__)"."_TOSTRING(__clang_patchlevel__)
+#elif defined (__GNUC__) || defined (__GNUG__)
+    #define COMPILER_VERSION "/gcc "__VERSION__
+#else
+    #define COMPILER_VERSION ""
+#endif
 #ifndef SLRNPULL_CODE
 extern char *Slrn_Version_String;
 extern int Slrn_Version;

@@ -1128,7 +1128,7 @@ static int main_init_and_parse_args (int argc, char **argv) /*{{{*/
 	  }
      }
 
-   fprintf (stdout, "slrn %s\n", Slrn_Version_String);
+   fprintf (stdout, "slrn %s (%s)\n", Slrn_Version_String, slrn_get_os_name());
 
    if (dsc_flag && create_flag)
      {
