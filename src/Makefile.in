@@ -111,7 +111,9 @@ UUDECODE_OBJS = $(OBJDIR)/strutil.o $(OBJDIR)/ttymsg.o \
 UPDATE_VERSION_SCRIPT = $(HOME)/bin/update_changes_version
 
 #
-COMPILE_CMD = $(CC) -c $(ALL_CFLAGS)
+
+TSTAMP = $(shell date -Iminutes)
+COMPILE_CMD = $(CC) -c $(ALL_CFLAGS) -D__COMPILE_TIMESTAMP="\"$(TSTAMP)\""
 #
 all: $(EXEC) $(OTHER_EXECS)
 $(EXEC): $(OBJDIR) $(CONFIG_H) slangversion $(OBJDIR)/$(EXEC)
