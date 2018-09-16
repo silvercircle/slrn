@@ -112,7 +112,7 @@ UPDATE_VERSION_SCRIPT = $(HOME)/bin/update_changes_version
 
 #
 
-TSTAMP = $(shell date -Iminutes)
+TSTAMP = $(shell date +"%Y-%m-%dT%H:%M %Z")
 COMPILE_CMD = $(CC) -c $(ALL_CFLAGS) -D__COMPILE_TIMESTAMP="\"$(TSTAMP)\""
 #
 all: $(EXEC) $(OTHER_EXECS)
