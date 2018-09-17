@@ -22,7 +22,7 @@
 #define __TOSTRING(X) #X
 #define _TOSTRING(X) __TOSTRING(X)
 
-#define SLRN_VERSION_STRING "1.0.4-unoff-"__COMPILE_TIMESTAMP
+#define SLRN_VERSION_STRING "1.0.4u-"__COMPILE_TIMESTAMP
 #define SLRN_VERSION 10040
 
 #if defined(__clang__)

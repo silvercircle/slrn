@@ -128,6 +128,7 @@ int Slrn_Full_Screen_Update = 1;
 int Slrn_User_Wants_Confirmation = SLRN_CONFIRM_ALL;
 int Slrn_Message_Present = 0;
 int Slrn_Abort_Unmodified = 0;
+int Slrn_Unquote_Realname = 0;
 int Slrn_Mail_Editor_Is_Mua = 0;
 
 #ifndef VMS
@@ -3012,59 +3013,59 @@ static char *make_realname (char *realname)
 }
 
 /* This function returns a malloced string of the form "From: value" */
-char *slrn_make_from_header (void)
+char* slrn_make_from_header(void)
 {
-   static char *buf;
-   char *localpart, *realname, *msg;
+  static char* buf;
+  char *localpart, *realname, *msg;
 
-#if ! SLRN_HAS_STRICT_FROM
-   if ((1 == slrn_run_hooks (HOOK_MAKE_FROM_STRING, 0))
-       && (0 == SLang_pop_slstring (&msg)))
-     {
-	if (*msg != 0)
-	  {
-	     char *prefix = "From: ";
-	     if (0 == strncmp (msg, "From: ", 6))
-	       prefix = "";
-	     buf = slrn_strjoin (prefix, msg, "");
-	     SLang_free_slstring (msg);
-	     return buf;
-	  }
-	SLang_free_slstring (msg);
-	/* Drop through to default */
-     }
+#if !SLRN_HAS_STRICT_FROM
+  if ((1 == slrn_run_hooks(HOOK_MAKE_FROM_STRING, 0)) && (0 == SLang_pop_slstring(&msg))) {
+    if (*msg != 0) {
+      char* prefix = "From: ";
+      if (0 == strncmp(msg, "From: ", 6))
+        prefix = "";
+      buf = slrn_strjoin(prefix, msg, "");
+      SLang_free_slstring(msg);
+      return buf;
+    }
+    SLang_free_slstring(msg);
+    /* Drop through to default */
+  }
 #endif
-   msg = NULL;
+  msg = NULL;
 
-   if (( localpart = make_localpart (Slrn_User_Info.username)) == NULL)
-     {
-	slrn_error (_("Cannot generate \"From:\" line without a valid username."));
-	return NULL;
-     }
-   if ((NULL == Slrn_User_Info.hostname) ||
-	    (0 == *Slrn_User_Info.hostname))
-     /* Note: we currently do not check whether hostname is valid */
-     {
-	slrn_error (_("Cannot generate \"From:\" line without a hostname."));
-	return NULL;
-     }
+  if ((localpart = make_localpart(Slrn_User_Info.username)) == NULL) {
+    slrn_error(_("Cannot generate \"From:\" line without a valid username."));
+    return NULL;
+  }
+  if ((NULL == Slrn_User_Info.hostname) || (0 == *Slrn_User_Info.hostname))
+  /* Note: we currently do not check whether hostname is valid */
+  {
+    slrn_error(_("Cannot generate \"From:\" line without a hostname."));
+    return NULL;
+  }
 
-   if (( realname = make_realname (Slrn_User_Info.realname))  != NULL)
-     {
-	buf=slrn_safe_malloc(6 + strlen(realname) +2 + strlen(localpart) + 1
-		  + strlen(Slrn_User_Info.hostname)+2);
-	sprintf (buf, "From: %s <%s@%s>", realname, localpart, /* safe */
-		 Slrn_User_Info.hostname);
-	slrn_free(realname);
-     }
-   else
-     {
-	buf=slrn_safe_malloc(6 + strlen(localpart) + 1
-		  + strlen(Slrn_User_Info.hostname)+2);
-	sprintf (buf, "From: %s@%s", localpart, Slrn_User_Info.hostname); /* safe */
-     }
+  if ((realname = make_realname(Slrn_User_Info.realname)) != NULL) {
+    char *_realname = realname;
 
-   slrn_free(localpart);
-   return buf;
+    if (Slrn_Unquote_Realname) {
+      char c = realname[strlen(realname) - 1];
+      if (c == '"' || c == ')')
+        realname[strlen(realname) - 1] = '\0';
+
+      if (*realname == '"' || *realname == '(')
+        _realname++;
+    }
+    buf = slrn_safe_malloc(6 + strlen(realname) + 2 + strlen(localpart) + 1 + strlen(Slrn_User_Info.hostname) + 2);
+    sprintf(buf, "From: %s <%s@%s>", _realname, localpart, /* safe */
+        Slrn_User_Info.hostname);
+    slrn_free(realname);
+  } else {
+    buf = slrn_safe_malloc(6 + strlen(localpart) + 1 + strlen(Slrn_User_Info.hostname) + 2);
+    sprintf(buf, "From: %s@%s", localpart, Slrn_User_Info.hostname); /* safe */
+  }
+
+  slrn_free(localpart);
+  return buf;
 }
 

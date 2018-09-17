@@ -596,6 +596,7 @@ Slrn_Int_Var_Type Slrn_Int_Variables [] = /*{{{*/
      {"generate_message_id", &Slrn_Generate_Message_Id, NULL},
      {"use_recommended_msg_id", &Slrn_Use_Recom_Id, NULL},
      {"midgen_override_fqdn", &Slrn_Use_Fqdn, NULL},
+     {"unquote_realname", &Slrn_Unquote_Realname, NULL},
      {"pipe_type", &Slrn_Pipe_Type, NULL},
 #if SLRN_HAS_STRICT_FROM
      {"generate_email_from", NULL, NULL},

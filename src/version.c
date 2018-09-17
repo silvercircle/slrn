@@ -164,9 +164,9 @@ static char *get_unix_system_name (void)
    static char *final_os_name = 0;
    if (0 == final_os_name) {
         if (-1 != uname (&u)) {
-            size_t len_required = strlen(u.sysname) + strlen(u.release) + strlen(u.machine) + 15 + strlen(COMPILER_VERSION);
+            size_t len_required = strlen(u.sysname) + strlen(u.release) + strlen(u.machine) + 10 + strlen(COMPILER_VERSION);
             final_os_name = (char *)malloc(len_required);
-            snprintf(final_os_name, len_required, "%s %s (%s%s)", u.sysname, u.release, u.machine, COMPILER_VERSION);
+            snprintf(final_os_name, len_required, "%s %s %s%s", u.sysname, u.release, u.machine, COMPILER_VERSION);
         }
         else {
             final_os_name = (char *)malloc(20);

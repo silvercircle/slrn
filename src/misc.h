@@ -151,5 +151,6 @@ extern char *Slrn_Failed_Post_Filename;
 extern char *Slrn_Top_Status_Line;
 
 extern int Slrn_Abort_Unmodified;
+extern int Slrn_Unquote_Realname;
 
 #endif				       /* _SLRN_MISC_H */
