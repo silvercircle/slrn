@@ -128,7 +128,6 @@ int Slrn_Full_Screen_Update = 1;
 int Slrn_User_Wants_Confirmation = SLRN_CONFIRM_ALL;
 int Slrn_Message_Present = 0;
 int Slrn_Abort_Unmodified = 0;
-int Slrn_Unquote_Realname = 0;
 int Slrn_Mail_Editor_Is_Mua = 0;
 
 #ifndef VMS
@@ -3046,18 +3045,8 @@ char* slrn_make_from_header(void)
   }
 
   if ((realname = make_realname(Slrn_User_Info.realname)) != NULL) {
-    char *_realname = realname;
-
-    if (Slrn_Unquote_Realname) {
-      char c = realname[strlen(realname) - 1];
-      if (c == '"' || c == ')')
-        realname[strlen(realname) - 1] = '\0';
-
-      if (*realname == '"' || *realname == '(')
-        _realname++;
-    }
     buf = slrn_safe_malloc(6 + strlen(realname) + 2 + strlen(localpart) + 1 + strlen(Slrn_User_Info.hostname) + 2);
-    sprintf(buf, "From: %s <%s@%s>", _realname, localpart, /* safe */
+    sprintf(buf, "From: %s <%s@%s>", realname, localpart, /* safe */
         Slrn_User_Info.hostname);
     slrn_free(realname);
   } else {

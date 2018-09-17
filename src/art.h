@@ -36,6 +36,7 @@ extern char *Slrn_Reply_Custom_Headers;
 extern char *Slrn_Supersedes_Custom_Headers;
 extern char *Slrn_Overview_Date_Format;
 extern char *Slrn_Followup_Date_Format;
+extern char *Slrn_From_Myself_Pattern;
 extern int Slrn_Use_Localtime;
 
 extern int Slrn_Article_Window_Border;
@@ -54,6 +55,7 @@ extern int Slrn_Align_Headers;
 extern int Slrn_Use_Header_Numbers;
 extern int Slrn_Reads_Per_Update;
 extern int Slrn_High_Score_Min;
+extern int Slrn_Top_Score_Min;
 extern int Slrn_Low_Score_Max;
 extern int Slrn_Kill_Score_Max;
 extern FILE *Slrn_Kill_Log_FP;
@@ -271,6 +273,7 @@ int slrn_get_next_pagedn_action (void);
 extern int slrn_string_to_article (char *str, int handle_mime, int cooked);
 
 extern int Slrn_Color_By_Score;
+extern int Slrn_Colorize_Read;
 extern int Slrn_Highlight_Unread;
 
 extern int slrn_set_header_format (unsigned int, char *);

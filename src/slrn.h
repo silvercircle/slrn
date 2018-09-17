@@ -148,6 +148,8 @@ extern int Graphic_Chars_Mode;
 #define HL_NEG_SCORE_COLOR	46
 #define HL_POS_SCORE_COLOR	47
 #define HL_HIGH_SCORE_COLOR	48
+#define TOP_SCORE_COLOR     49
+#define HL_TOP_SCORE_COLOR  50
 
 #define BOLD_COLOR		30
 #define UNDERLINE_COLOR		31

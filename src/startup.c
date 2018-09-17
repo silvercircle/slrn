@@ -596,7 +596,6 @@ Slrn_Int_Var_Type Slrn_Int_Variables [] = /*{{{*/
      {"generate_message_id", &Slrn_Generate_Message_Id, NULL},
      {"use_recommended_msg_id", &Slrn_Use_Recom_Id, NULL},
      {"midgen_override_fqdn", &Slrn_Use_Fqdn, NULL},
-     {"unquote_realname", &Slrn_Unquote_Realname, NULL},
      {"pipe_type", &Slrn_Pipe_Type, NULL},
 #if SLRN_HAS_STRICT_FROM
      {"generate_email_from", NULL, NULL},
@@ -612,6 +611,7 @@ Slrn_Int_Var_Type Slrn_Int_Variables [] = /*{{{*/
      {"force_authentication", NULL, NULL},
 #endif
      {"color_by_score", &Slrn_Color_By_Score, NULL},
+     {"colorize_read", &Slrn_Colorize_Read, NULL},
      {"highlight_unread_subjects", &Slrn_Highlight_Unread, NULL},
      {"highlight_urls", &Slrn_Highlight_Urls, NULL},
      {"show_article", &Slrn_Startup_With_Article, NULL},
@@ -645,6 +645,7 @@ Slrn_Int_Var_Type Slrn_Int_Variables [] = /*{{{*/
      {"min_high_score", &Slrn_High_Score_Min, NULL},
      {"max_low_score", &Slrn_Low_Score_Max, NULL},
      {"kill_score", &Slrn_Kill_Score_Max, NULL},
+     {"min_top_score", &Slrn_Top_Score_Min, NULL},
      {"followup_strip_signature", &Slrn_Followup_Strip_Sig, NULL},
 #if !defined(IBMPC_SYSTEM)
      {"use_blink", &SLtt_Blink_Mode, NULL},
@@ -774,6 +775,7 @@ Slrn_Str_Var_Type Slrn_Str_Variables [] = /*{{{*/
      {"followup_custom_headers", &Slrn_Followup_Custom_Headers, NULL},
      {"reply_custom_headers", &Slrn_Reply_Custom_Headers, NULL},
      {"supersedes_custom_headers", &Slrn_Supersedes_Custom_Headers, NULL},
+     {"from_myself_pattern", &Slrn_From_Myself_Pattern, NULL},
 #if SLRN_HAS_GROUPLENS
      {"grouplens_pseudoname", &Slrn_GroupLens_Pseudoname, NULL},
      {"grouplens_host", &Slrn_GroupLens_Host, NULL},
@@ -1216,6 +1218,7 @@ static Color_Handle_Type Color_Handles[] = /*{{{*/
      {"header_number",	HEADER_NUMBER_COLOR,	"green",	DEF_BG, 0},
      {"headers",	HEADER_COLOR,		"brightcyan",	DEF_BG, 0},
      {"high_score",	HIGH_SCORE_COLOR,	"red",		DEF_BG, SLTT_BOLD_MASK},
+     {"top_score",	TOP_SCORE_COLOR,	"magenta",		DEF_BG, SLTT_BOLD_MASK},
      {"italicstext", 	ITALICS_COLOR,		"magenta", 	DEF_BG, 0},
      {"menu",		MENU_COLOR,		"yellow",	"blue", SLTT_REV_MASK},
      {"menu_press",	MENU_PRESS_COLOR,	DEF_FG,		"yellow", 0},
@@ -1247,6 +1250,7 @@ static Color_Handle_Type Color_Handles[] = /*{{{*/
 static Color_Handle_Type Auto_Color_Handles[] = /*{{{*/
 {
      {"high_score",	HL_HIGH_SCORE_COLOR,	"brightred",	DEF_BG,	SLTT_BOLD_MASK},
+     {"top_score",	HL_TOP_SCORE_COLOR,	"brighmagenta",	DEF_BG,	SLTT_BOLD_MASK},
      {"neg_score",	HL_NEG_SCORE_COLOR,	"brightgreen",	DEF_BG,	SLTT_BOLD_MASK},
      {"pos_score",	HL_POS_SCORE_COLOR,	"brightblue",	DEF_BG, SLTT_REV_MASK | SLTT_BOLD_MASK},
      {"subject",	HL_SUBJECT_COLOR,	"white",	DEF_BG,	SLTT_BOLD_MASK},

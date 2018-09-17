@@ -1,4 +1,5 @@
 /* -*- mode: C; mode: fold; -*- */
+/* vim: set shiftwidth=2:       */
 /*
  This file is part of SLRN.
 
@@ -99,6 +100,8 @@ char *Slrn_Reply_Custom_Headers;
 char *Slrn_Supersedes_Custom_Headers;
 char *Slrn_Overview_Date_Format;
 char *Slrn_Followup_Date_Format;
+char *Slrn_From_Myself_Pattern;
+
 int Slrn_Use_Localtime = 1;
 
 int Slrn_Emphasized_Text_Mode = 3;
@@ -139,9 +142,11 @@ int Slrn_Use_Tmpdir = 0;
 int Slrn_Use_Header_Numbers = 1;
 int Slrn_Warn_Followup_To = 1;
 int Slrn_Color_By_Score = 3;
+int Slrn_Colorize_Read = 0;
 int Slrn_Highlight_Unread = 1;
 int Slrn_High_Score_Min = 1;
 int Slrn_Low_Score_Max = 0;
+int Slrn_Top_Score_Min = 9000;
 int Slrn_Kill_Score_Max = -9999;
 FILE *Slrn_Kill_Log_FP = NULL;
 int Slrn_Article_Window_Border = 0;
@@ -8680,15 +8685,19 @@ static char *disp_get_header_subject (Slrn_Header_Type *h)
    return ">";
 }
 
-static int color_by_score (int score) /*{{{*/
+static int color_by_score(int score) /*{{{*/
 {
-   if (score >= Slrn_High_Score_Min) return HIGH_SCORE_COLOR;
-   else if (score)
-     {
-	if (score > 0) return POS_SCORE_COLOR;
-	else return NEG_SCORE_COLOR;
-     }
-   return SUBJECT_COLOR;
+  if (score >= Slrn_Top_Score_Min)
+    return TOP_SCORE_COLOR;
+  else if (score >= Slrn_High_Score_Min)
+    return HIGH_SCORE_COLOR;
+  else if (score) {
+    if (score > 0)
+      return POS_SCORE_COLOR;
+    else
+      return NEG_SCORE_COLOR;
+  }
+  return SUBJECT_COLOR;
 }
 /*}}}*/
 
@@ -8837,23 +8846,33 @@ static char *display_header_cb (char ch, void *data, int *len, int *color) /*{{{
 	if (retval == NULL) retval = "";
 	if (color != NULL)
 	  {
-	     if (strcmp (Slrn_User_Info.realname,
-			 (h->realname != NULL) ? h->realname : ""))
-	       *color = AUTHOR_COLOR;
-	     else
-	       *color = FROM_MYSELF_COLOR;
+	     SLsearch_Type *st = SLsearch_new ((SLuchar_Type *)h->from, SLSEARCH_UTF8);
+
+         if (st && SLsearch_forward(st, (SLuchar_Type *)Slrn_From_Myself_Pattern, 
+               (SLuchar_Type *)Slrn_From_Myself_Pattern + strlen(Slrn_From_Myself_Pattern))) {
+           *color = FROM_MYSELF_COLOR;
+           SLsearch_delete (st);
+         }
+         else
+           *color = AUTHOR_COLOR;
 	  }
 	break;
+
 
       case 'r':
 	retval = h->realname;
 	if (retval == NULL) retval = "";
 	if (color != NULL)
 	  {
-	     if (strcmp (Slrn_User_Info.realname, retval))
-	       *color = AUTHOR_COLOR;
-	     else
-	       *color = FROM_MYSELF_COLOR;
+	     SLsearch_Type *st = SLsearch_new ((SLuchar_Type *)h->from, SLSEARCH_UTF8);
+
+         if (st && SLsearch_forward(st, (SLuchar_Type *)Slrn_From_Myself_Pattern, 
+               (SLuchar_Type *)Slrn_From_Myself_Pattern + strlen(Slrn_From_Myself_Pattern))) {
+           *color = FROM_MYSELF_COLOR;
+           SLsearch_delete (st);
+         }
+         else
+           *color = AUTHOR_COLOR;
 	  }
 	break;
 
@@ -8865,7 +8884,7 @@ static char *display_header_cb (char ch, void *data, int *len, int *color) /*{{{
 	  }
 
 	if ((Slrn_Color_By_Score & 0x2) &&
-	    ((Slrn_Highlight_Unread != 2) || !(h->flags & HEADER_READ)))
+	    ((Slrn_Highlight_Unread != 2) || (h->flags & HEADER_READ && Slrn_Colorize_Read)))
 	  {
 	     score = ((h->child != NULL) && (h->child->flags & HEADER_HIDDEN)
 		      ? h->thread_score : h->score);
