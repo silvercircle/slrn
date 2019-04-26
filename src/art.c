@@ -311,6 +311,15 @@ static unsigned long time_diff(struct timeval t1, struct timeval t2)
 #endif
 /*}}}*/
 
+
+static unsigned int is_from_me(const char *from)
+{
+  if (NULL != Slrn_From_Myself_Pattern && NULL != strstr(Slrn_From_Myself_Pattern, from))
+    return 1;
+
+  return 0;
+}
+
 /*{{{ SIGWINCH and window resizing functions */
 
 /* This function syncs the current article */
@@ -635,8 +644,10 @@ static void free_article_lines (Slrn_Article_Type *a, int cooked)
      }
 
    slrn_art_free_article_line_list (a->lines);
+   slrn_art_free_article_line_list (a->wrapped_lines);
    a->lines = NULL;
    a->cline=NULL;
+   a->wrapped_lines = NULL;
 }
 
 void slrn_art_free_article (Slrn_Article_Type *a)
@@ -8846,15 +8857,7 @@ static char *display_header_cb (char ch, void *data, int *len, int *color) /*{{{
 	if (retval == NULL) retval = "";
 	if (color != NULL)
 	  {
-	     SLsearch_Type *st = SLsearch_new ((SLuchar_Type *)h->from, SLSEARCH_UTF8);
-
-         if (st && SLsearch_forward(st, (SLuchar_Type *)Slrn_From_Myself_Pattern, 
-               (SLuchar_Type *)Slrn_From_Myself_Pattern + strlen(Slrn_From_Myself_Pattern))) {
-           *color = FROM_MYSELF_COLOR;
-           SLsearch_delete (st);
-         }
-         else
-           *color = AUTHOR_COLOR;
+	    *color = is_from_me (h->from) ? FROM_MYSELF_COLOR : AUTHOR_COLOR;
 	  }
 	break;
 
@@ -8864,15 +8867,7 @@ static char *display_header_cb (char ch, void *data, int *len, int *color) /*{{{
 	if (retval == NULL) retval = "";
 	if (color != NULL)
 	  {
-	     SLsearch_Type *st = SLsearch_new ((SLuchar_Type *)h->from, SLSEARCH_UTF8);
-
-         if (st && SLsearch_forward(st, (SLuchar_Type *)Slrn_From_Myself_Pattern, 
-               (SLuchar_Type *)Slrn_From_Myself_Pattern + strlen(Slrn_From_Myself_Pattern))) {
-           *color = FROM_MYSELF_COLOR;
-           SLsearch_delete (st);
-         }
-         else
-           *color = AUTHOR_COLOR;
+	    *color = is_from_me (h->from) ? FROM_MYSELF_COLOR : AUTHOR_COLOR;
 	  }
 	break;
 

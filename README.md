@@ -31,7 +31,7 @@ article pager. Version number has been changed to 1.0.4-unoff to indicate its fo
 * added additional level of coloroization with `min_top_score` threshold and `top_score`
   color value. All articles with scores above the threshold value will be colorized with
   the `top_score` attribute.
-* added config variable `colorize_read`. If set to 1, read subjects will always be
+* Added config variable `colorize_read`. If set to 1, read subjects will always be
   colorized according to scores, when `color_by_score` is set to 2 or 3.
 * Changed the way articles from yourself are highlighted in the list of messages. A new
   configuration value `from_myself_pattern` has been introduced. It's a simple string

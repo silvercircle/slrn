@@ -202,6 +202,7 @@ typedef struct
    Slrn_Article_Line_Type *lines;
    Slrn_Article_Line_Type *cline;      /* current line */
    Slrn_Article_Line_Type *raw_lines;  /* unmodified article (as read from server) */
+   Slrn_Article_Line_Type *wrapped_lines;   /* f=f rewrapped article body */
    int is_modified;		       /* non-zero if different from server */
    int is_wrapped;
    /* Eventually *_hidden will be replaced by a bitmapped quantity */
