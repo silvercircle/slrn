@@ -1,0 +1,668 @@
+[
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/chkslang.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/chkslang.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/art.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/art.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/art_misc.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/art_misc.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/art_sort.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/art_sort.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/charset.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/charset.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/decode.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/decode.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/editscore.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/editscore.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/group.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/group.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/grplens.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/grplens.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/hash.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/hash.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/hdrutils.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/hdrutils.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/help.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/help.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/hooks.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/hooks.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/interp.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/interp.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/menu.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/menu.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/mime.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/mime.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/misc.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/misc.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/post.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/post.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/print.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/print.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/ranges.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/ranges.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:43 CEST\"",
+   "/mnt/shared/data/code/slrn/src/score.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/score.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/server.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/server.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/slrn.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/slrn.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/slrndir.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/slrndir.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/snprintf.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/snprintf.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/sortdate.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/sortdate.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/startup.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/startup.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/strutil.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/strutil.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/ttymsg.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/ttymsg.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/util.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/util.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/version.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/version.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/vfile.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/vfile.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/xover.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/xover.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/parse2822.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/parse2822.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/slrnpull.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/slrnpull.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/sltcp.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/sltcp.c"
+ },
+ {
+  "directory": "/home/mnt/shared/data/code/slrn/src",
+  "arguments": [
+   "clang-12",
+   "-c",
+   "-g",
+   "-O2",
+   "-Dunix",
+   "-I/usr/local/ssl/include",
+   "-DSLRN_SLANG_DIR=\"/usr/local/share/slrn/slang\"",
+   "-DSLRN_LIB_DIR=\"/usr/local/share/slrn\"",
+   "-DSLRN_CONF_DIR=\"/usr/local/etc/slrn\"",
+   "-DNLS_LOCALEDIR=\"/usr/local/share/locale\"",
+   "-D__COMPILE_TIMESTAMP=\"2021-10-29T06:44 CEST\"",
+   "/mnt/shared/data/code/slrn/src/nntplib.c"
+  ],
+  "file": "/mnt/shared/data/code/slrn/src/nntplib.c"
+ }
+]

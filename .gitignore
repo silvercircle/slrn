@@ -15,4 +15,4 @@ src/sysconf.h
 *.vpj
 *.vtg
 *.vpwhistu
-
+.cache/

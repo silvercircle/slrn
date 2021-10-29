@@ -9412,7 +9412,6 @@ static void art_update_screen (void) /*{{{*/
 
    Slrn_Full_Screen_Update = 0;
 }
-
 /*}}}*/
 
 /*}}}*/

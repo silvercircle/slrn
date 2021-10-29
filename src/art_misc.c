@@ -1190,5 +1190,4 @@ void _slrn_art_hide_verbatim (Slrn_Article_Type *a) /*{{{*/
    hide_article_lines (a, VERBATIM_LINE);
    a->verbatim_hidden = 1;
 }
-
 /*}}}*/
